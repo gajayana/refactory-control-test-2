@@ -1,0 +1,35 @@
+@tailwind base;
+
+@tailwind components;
+
+body {
+  @apply bg-gray-100;
+}
+
+.menu-item {
+  @apply border;
+  @apply border-indigo-700;
+  @apply border-solid;
+  @apply font-bold;
+  @apply leading-none;
+  @apply mr-4;
+  @apply px-4;
+  @apply py-2;
+  @apply rounded;
+  @apply text-indigo-700;
+}
+
+.menu-item:hover {
+  @apply bg-indigo-100;
+}
+
+.menu-item.router-link-exact-active {
+  @apply bg-indigo-700;
+  @apply text-white;
+}
+
+.menu-item.router-link-exact-active:hover {
+  @apply bg-indigo-600;
+}
+
+@tailwind utilities;
