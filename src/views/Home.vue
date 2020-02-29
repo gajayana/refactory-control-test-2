@@ -2,7 +2,7 @@
   <div class="w-full">
     <header class="shadow p-4 flex justify-between">
       <h1>3M - Murah Meriah Maregi</h1>
-      <button>Keluar</button>
+      <button @click="signOut">Keluar</button>
     </header>
     <div class="flex w-full">
 
@@ -36,6 +36,10 @@ export default {
       fetchGroups: 'groups/fetch',
       fetchProducts: 'products/fetch',
     }),
+    signOut() {
+      this.$cookies.remove('user')
+      this.$router.push('/login')
+    }
   },
   created () {
     this.fetchGroups()

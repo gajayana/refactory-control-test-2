@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import auth from '@/middlewares/auth'
 
 Vue.use(Router)
 
@@ -8,6 +9,11 @@ export default new Router({
     {
       path: '/',
       name: 'home',
+      meta: {
+        middleware: [
+          auth
+        ]
+      },
       component: () => import(/* webpackChunkName: "home" */ './views/Home.vue')
     },
     {

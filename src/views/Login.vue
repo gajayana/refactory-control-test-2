@@ -9,7 +9,7 @@
           </div>
           <div class="flex flex-col mb-4">
             <label class="cursor-pointer font-bold mb-1" for="name">Nama Pengguna</label>
-            <input v-model="name" id="name" class="border border-solid px-2 py-1 rounded w-full" autofocus type="text" />
+            <input v-model="name" id="name" class="border border-solid px-2 py-1 rounded w-full" type="text" />
           </div>
           <div class="flex flex-col mb-4">
             <label class="cursor-pointer font-bold mb-1" for="password">Sandi</label>
