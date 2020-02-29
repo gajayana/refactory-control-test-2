@@ -14,6 +14,11 @@ export default new Router({
       path: '/checkout',
       name: 'checkout',
       component: () => import(/* webpackChunkName: "checkout" */ './views/Checkout.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import(/* webpackChunkName: "login" */ './views/Login.vue')
     }
   ]
 })
