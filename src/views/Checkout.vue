@@ -3,12 +3,12 @@
     <div class="flex flex-col w-full max-w-sm">
       <div class="mb-4 shadow-lg p-4">
         <h1 class="text-2xl text-center">Kasbon</h1>
-        <div v-if="items" class="flex flex-col">
+        <div v-if="uniqueItems" class="flex flex-col">
           <div v-for="(item, key) in uniqueItems" :key="key" class="flex flex-col mb-4">
             <h3 class="font-bold">{{ item.name }}</h3>
             <div class="flex justify-between">
-              <span>{{ quantity(item) }} x Rp {{ item.price | digitGrouping }}</span>
-              <span>Rp {{ itemPrice(item) | digitGrouping }}</span>
+              <span>{{ itemCumulativeQuantity(item) }} x Rp {{ item.price | digitGrouping }}</span>
+              <span>Rp {{ itemCumulativePrice(item) | digitGrouping }}</span>
             </div>
           </div>
           <div class="border-t border-solid border-gray-400 flex justify-between">
@@ -16,7 +16,7 @@
             <span class="font-bold">Rp {{ totalPrice | digitGrouping }}</span>
           </div>
           <div class="flex justify-center">
-            <button @click="print" class="bg-indigo-700 block shadow text-white px-4 py-2 rounded">Cetak Kasbon</button>
+            <button @click.prevent="print" class="bg-indigo-700 block shadow text-white px-4 py-2 rounded">Cetak Kasbon</button>
           </div>
         </div>
       </div>
@@ -35,16 +35,11 @@ export default {
   ],
   computed: {
     ...mapGetters({
-      items: 'carts/items'
+      itemCumulativeQuantity: 'carts/itemCumulativeQuantity',
+      itemCumulativePrice: 'carts/itemCumulativePrice',
+      totalPrice: 'carts/totalPrice',
+      uniqueItems: 'carts/unique',
     }),
-    totalPrice() {
-      return this.items.reduce( (a, b) => {
-        return a + b.price
-      }, 0)
-    },
-    uniqueItems() {
-      return [ ...new Set(this.items) ]
-    },
   },
   methods: {
     ...mapMutations({
@@ -53,12 +48,6 @@ export default {
     print() {
       this.reset()
       this.$router.push('/')
-    },
-    quantity(item) {
-      return this.items.filter(ob => ob.id === item.id).length
-    },
-    itemPrice(item) {
-      return item.price * this.quantity(item)
     },
   }
 }

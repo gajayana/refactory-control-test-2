@@ -19,6 +19,11 @@ export default new Router({
     {
       path: '/checkout',
       name: 'checkout',
+      meta: {
+        middleware: [
+          auth
+        ]
+      },
       component: () => import(/* webpackChunkName: "checkout" */ './views/Checkout.vue')
     },
     {

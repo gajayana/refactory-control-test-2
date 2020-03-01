@@ -11,6 +11,8 @@ Vue.use(VueCookies)
 router.beforeEach((to, from, next) => {
   if (!to.meta.middleware) return next()
 
+  if( !store.state.auth.user && window.$cookies.isKey('user') ) store.commit('auth/setUser', window.$cookies.get('user'))
+
   const middleware = to.meta.middleware
 
   const context = {
@@ -19,6 +21,7 @@ router.beforeEach((to, from, next) => {
     next,
     store,
   }
+
   return middleware[0]({
     ...context
   })

@@ -2,7 +2,10 @@
   <div class="w-full">
     <header class="shadow p-4 flex justify-between">
       <h1>3M - Murah Meriah Maregi</h1>
-      <button @click="signOut">Keluar</button>
+      <div>
+        <span class="capitalize mr-4">Halo {{ user }}</span>
+        <button @click="signOut">Keluar</button>
+      </div>
     </header>
     <div class="flex w-full">
 
@@ -19,11 +22,10 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import Cart from '@/components/Cart.vue'
 import Filters from '@/components/Filters.vue'
 import Products from '@/components/Products.vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations, mapState } from 'vuex'
 export default {
   name: 'home',
   components: {
@@ -31,10 +33,23 @@ export default {
     Filters,
     Products,
   },
+  watch: {
+    $route(to) {
+      this.setProductsCategory( to.query.kategori )
+    }
+  },
+  computed: {
+    ...mapState({
+      user: state => state.auth.user
+    })
+  },
   methods: {
     ...mapActions({
       fetchGroups: 'groups/fetch',
       fetchProducts: 'products/fetch',
+    }),
+    ...mapMutations({
+      setProductsCategory: 'products/setCategory'
     }),
     signOut() {
       this.$cookies.remove('user')
@@ -44,6 +59,7 @@ export default {
   created () {
     this.fetchGroups()
     this.fetchProducts()
+    this.setProductsCategory( this.$route.query.hasOwnProperty('kategori') ? this.$route.query.kategori : '')
   }
 }
 </script>

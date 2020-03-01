@@ -25,19 +25,24 @@
   </div>
 </template>
 <script>
+import { mapMutations } from 'vuex'
 export default {
   data: () => ({
     error: '',
-    name: 'admin',
-    password: '1234',
+    name: '',
+    password: '',
   }),
   methods: {
+    ...mapMutations({
+      setUser: 'auth/setUser',
+    }),
     submit() {
       if ( this.name !== process.env.VUE_APP_USER || this.password !== process.env.VUE_APP_SECRET) {
         this.error = 'Nama dan/atau sandi tidak cocok.'
         return
       }
 
+      this.setUser(this.name)
       this.$cookies.set('user', this.name)
       this.$router.push('/')
     }

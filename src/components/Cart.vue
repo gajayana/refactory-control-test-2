@@ -1,17 +1,17 @@
 <template>
-  <div v-if="items.length > 0">
+  <div v-if="uniqueItems">
     <!-- start: cart items -->
     <div v-for="(item, key) in uniqueItems" :key="'cart-item' + key" class="bg-white mb-3 p-4 shadow">
       <div class="flex justify-between mb-2">
         <span>{{ item.name }}</span>
-        <span class="font-bold">Rp {{ itemPrice(item) | digitGrouping}}</span>
+        <span class="font-bold">Rp {{ itemCumulativePrice(item) | digitGrouping}}</span>
       </div>
       <div class="flex justify-between">
-        <button @click="cancel(item)" class="border border-solid border-gray-200 font-bold px-2">Batal</button>
+        <button @click.prevent="cancel(item)" class="border border-solid border-gray-300 font-bold px-3 py-1">Batal</button>
         <div class="flex items-center">
-          <button @click="add(item)" class="border border-solid border-gray-200 font-bold px-2">+</button>
-          <span class="px-2">{{ quantity( item ) }}</span>
-          <button @click="substract(item)" class="border border-solid border-gray-200 font-bold px-2">-</button>
+          <button @click.prevent="add(item)" class="border border-solid border-gray-300 font-bold px-3 py-1">+</button>
+          <span class="px-3 py-1">{{ itemCumulativeQuantity( item ) }}</span>
+          <button @click.prevent="substract(item)" class="border border-solid border-gray-300 font-bold px-3 py-1">-</button>
         </div>
       </div>
     </div>
@@ -44,38 +44,18 @@ export default {
   ],
   computed: {
     ...mapGetters({
-      items: 'carts/items'
+      itemCumulativeQuantity: 'carts/itemCumulativeQuantity',
+      itemCumulativePrice: 'carts/itemCumulativePrice',
+      totalPrice: 'carts/totalPrice',
+      uniqueItems: 'carts/unique',
     }),
-    totalPrice() {
-      return this.items.reduce( (a, b) => {
-        return a + b.price
-      }, 0)
-    },
-    uniqueItems() {
-      return [ ...new Set(this.items) ]
-    },
   },
   methods: {
     ...mapMutations({
-      addItemToCart: 'carts/add',
-      cancelItemInCart: 'carts/remove',
-      substractItemFromCart: 'carts/substract',
+      add: 'carts/add',
+      cancel: 'carts/remove',
+      substract: 'carts/substract',
     }),
-    add(item) {
-      this.addItemToCart(item)
-    },
-    cancel(item) {
-      this.cancelItemInCart(item)
-    },
-    quantity(item) {
-      return this.items.filter(ob => ob.id === item.id).length
-    },
-    itemPrice(item) {
-      return item.price * this.quantity(item)
-    },
-    substract(item) {
-      this.substractItemFromCart(item)
-    }
   }
 }
 </script>
