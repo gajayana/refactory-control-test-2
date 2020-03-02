@@ -1,106 +1,114 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "display": "Admin",
+      "password": "123"
+    }
+  ],
   "categories": [
-      "meat",
-      "vegan",
-      "fishy",
-      "enaknan"
+    "meat",
+    "vegan",
+    "fishy",
+    "enaknan"
   ],
   "products": [
-      {
-          "id": 1,
-          "category": "enaknan",
-          "name": "Nasi Goreng",
-          "price": 45781,
-          "description": "Ann! Mary Ann!' said the March Hare and his.",
-          "image": "https://loremflickr.com/640/480/mackerel?random=1"
-      },
-      {
-          "id": 2,
-          "category": "meat",
-          "name": "Kroket",
-          "price": 25751,
-          "description": "May it won't be raving mad after all! I almost.",
-          "image": "https://loremflickr.com/640/480/sushi?random=2"
-      },
-      {
-          "id": 3,
-          "category": "enaknan",
-          "name": "Nasi Timbel",
-          "price": 38803,
-          "description": "As there seemed to be talking in his throat,'.",
-          "image": "https://loremflickr.com/640/480/sashimi?random=3"
-      },
-      {
-          "id": 4,
-          "category": "vegan",
-          "name": "Ketoprak",
-          "price": 47364,
-          "description": "ME, and told me he was going off into a sort of.",
-          "image": "https://loremflickr.com/640/480/ramen?random=4"
-      },
-      {
-          "id": 5,
-          "category": "fishy",
-          "name": "Mie Goreng",
-          "price": 22373,
-          "description": "Alice after it, never once considering how in.",
-          "image": "https://loremflickr.com/640/480/curry?random=5"
-      },
-      {
-          "id": 6,
-          "category": "vegan",
-          "name": "Sate Ayam",
-          "price": 19889,
-          "description": "CAN I have done that, you know,' said Alice, as.",
-          "image": "https://loremflickr.com/640/480/karaage?random=6"
-      },
-      {
-          "id": 7,
-          "category": "enaknan",
-          "name": "Sop Embek",
-          "price": 21067,
-          "description": "Five! Always lay the blame on others!' 'YOU'D.",
-          "image": "https://loremflickr.com/640/480/gyoza?random=7"
-      },
-      {
-          "id": 8,
-          "category": "fishy",
-          "name": "Sayur Lodeh",
-          "price": 14587,
-          "description": "Alice; 'living at the great wonder is, that I'm.",
-          "image": "https://loremflickr.com/640/480/omurice?random=8"
-      },
-      {
-          "id": 9,
-          "category": "enaknan",
-          "name": "Ayam Goreng",
-          "price": 34472,
-          "description": "Shakespeare, in the pool was getting quite.",
-          "image": "https://loremflickr.com/640/480/katsudon?random=9"
-      },
-      {
-          "id": 10,
-          "category": "vegan",
-          "name": "Serabi",
-          "price": 43077,
-          "description": "King in a melancholy tone: 'it doesn't seem to.",
-          "image": "https://loremflickr.com/640/480/tempura?random=10"
-      },
-      {
-          "id": 11,
-          "category": "meat",
-          "name": "Sate Kere",
-          "price": 17587,
-          "description": "Hatter. Alice felt a violent shake at the end of.",
-          "image": "https://loremflickr.com/640/480/yakitori?random=11"
-      },
-      {
-          "id": 12,
-          "category": "meat",
-          "name": "Siomay",
-          "price": 45891,
-          "description": "Alice replied, rather shyly, 'I--I hardly know.",
-          "image": "https://loremflickr.com/640/480/dorayaki?random=12"
-      }
+    {
+      "id": 1,
+      "category": "enaknan",
+      "name": "Nasi Goreng",
+      "price": 45781,
+      "description": "Ann! Mary Ann!' said the March Hare and his.",
+      "image": "https://loremflickr.com/640/480/mackerel?random=1"
+    },
+    {
+      "id": 2,
+      "category": "meat",
+      "name": "Kroket",
+      "price": 25751,
+      "description": "May it won't be raving mad after all! I almost.",
+      "image": "https://loremflickr.com/640/480/sushi?random=2"
+    },
+    {
+      "id": 3,
+      "category": "enaknan",
+      "name": "Nasi Timbel",
+      "price": 38803,
+      "description": "As there seemed to be talking in his throat,'.",
+      "image": "https://loremflickr.com/640/480/sashimi?random=3"
+    },
+    {
+      "id": 4,
+      "category": "vegan",
+      "name": "Ketoprak",
+      "price": 47364,
+      "description": "ME, and told me he was going off into a sort of.",
+      "image": "https://loremflickr.com/640/480/ramen?random=4"
+    },
+    {
+      "id": 5,
+      "category": "fishy",
+      "name": "Mie Goreng",
+      "price": 22373,
+      "description": "Alice after it, never once considering how in.",
+      "image": "https://loremflickr.com/640/480/curry?random=5"
+    },
+    {
+      "id": 6,
+      "category": "vegan",
+      "name": "Sate Ayam",
+      "price": 19889,
+      "description": "CAN I have done that, you know,' said Alice, as.",
+      "image": "https://loremflickr.com/640/480/karaage?random=6"
+    },
+    {
+      "id": 7,
+      "category": "enaknan",
+      "name": "Sop Embek",
+      "price": 21067,
+      "description": "Five! Always lay the blame on others!' 'YOU'D.",
+      "image": "https://loremflickr.com/640/480/gyoza?random=7"
+    },
+    {
+      "id": 8,
+      "category": "fishy",
+      "name": "Sayur Lodeh",
+      "price": 14587,
+      "description": "Alice; 'living at the great wonder is, that I'm.",
+      "image": "https://loremflickr.com/640/480/omurice?random=8"
+    },
+    {
+      "id": 9,
+      "category": "enaknan",
+      "name": "Ayam Goreng",
+      "price": 34472,
+      "description": "Shakespeare, in the pool was getting quite.",
+      "image": "https://loremflickr.com/640/480/katsudon?random=9"
+    },
+    {
+      "id": 10,
+      "category": "vegan",
+      "name": "Serabi",
+      "price": 43077,
+      "description": "King in a melancholy tone: 'it doesn't seem to.",
+      "image": "https://loremflickr.com/640/480/tempura?random=10"
+    },
+    {
+      "id": 11,
+      "category": "meat",
+      "name": "Sate Kere",
+      "price": 17587,
+      "description": "Hatter. Alice felt a violent shake at the end of.",
+      "image": "https://loremflickr.com/640/480/yakitori?random=11"
+    },
+    {
+      "id": 12,
+      "category": "meat",
+      "name": "Siomay",
+      "price": 45891,
+      "description": "Alice replied, rather shyly, 'I--I hardly know.",
+      "image": "https://loremflickr.com/640/480/dorayaki?random=12"
+    }
   ]
 }

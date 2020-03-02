@@ -3,8 +3,8 @@
     <header class="shadow p-4 flex justify-between">
       <h1>3M - Murah Meriah Maregi</h1>
       <div>
-        <span class="capitalize mr-4">Halo {{ user }}</span>
-        <button @click="signOut">Keluar</button>
+        <span class="mr-4">Halo {{ user.display }}</span>
+        <button @click="logout">Keluar</button>
       </div>
     </header>
     <div class="flex w-full">
@@ -47,14 +47,11 @@ export default {
     ...mapActions({
       fetchGroups: 'groups/fetch',
       fetchProducts: 'products/fetch',
+      logout: 'auth/logout',
     }),
     ...mapMutations({
       setProductsCategory: 'products/setCategory'
     }),
-    signOut() {
-      this.$cookies.remove('user')
-      this.$router.push('/login')
-    }
   },
   created () {
     this.fetchGroups()

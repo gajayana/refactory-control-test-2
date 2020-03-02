@@ -16,7 +16,7 @@
             <input v-model="password" id="password" class="border border-solid px-2 py-1 rounded w-full" type="password" />
           </div>
           <div class="flex justify-center mb-2">
-            <button @click.prevent="submit" class="bg-indigo-700 leading-none rounded px-4 py-2 text-white">Masuk</button>
+            <button @click.prevent="login({ name, password })" class="bg-indigo-700 leading-none rounded px-4 py-2 text-white">Masuk</button>
           </div>
         </form>
       </div>
@@ -25,27 +25,18 @@
   </div>
 </template>
 <script>
-import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex' // mapMutations,
 export default {
   data: () => ({
     error: '',
-    name: '',
-    password: '',
+    name: 'admin',
+    password: '123',
   }),
   methods: {
-    ...mapMutations({
-      setUser: 'auth/setUser',
+    ...mapActions({
+      fetchUser: 'auth/fetch',
+      login: 'auth/login',
     }),
-    submit() {
-      if ( this.name !== process.env.VUE_APP_USER || this.password !== process.env.VUE_APP_SECRET) {
-        this.error = 'Nama dan/atau sandi tidak cocok.'
-        return
-      }
-
-      this.setUser(this.name)
-      this.$cookies.set('user', this.name)
-      this.$router.push('/')
-    }
   }
 }
 </script>
